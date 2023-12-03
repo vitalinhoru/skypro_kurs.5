@@ -52,6 +52,8 @@ def main():
             db_m.get_vacancies_with_higher_salary()
         elif db_num == '5':
             db_m.get_vacancies_with_keyword()
+        else:
+            print('Неверный ввод.')
 
         new_start = input('\n'
                           'Продолжить работу с базой данных?\n'
