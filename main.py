@@ -82,8 +82,12 @@ def main():
             print(company)
         print('')
         main()
+    elif num == '4':
+        print('Завершение работы...')
     else:
-        print('Завершение работы.')
+        print('Неверная команда.\n'
+              '')
+        main()
 
 
 if __name__ == '__main__':
