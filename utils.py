@@ -27,13 +27,13 @@ def add_employer(employer_ids: list[int], employer_id: int):
         return employer_ids
 
 
-def get_employers(companies: list[int]):
+def get_employers(companies: list[int], per_page):
     """Получаем данные о компаниях через API"""
 
     employers = []
     params = {
         'page': 0,  # С первой страницы
-        'per_page': 10  # Количество
+        'per_page': int(per_page)  # Количество
         # 'area': 2  # СПб
     }
 

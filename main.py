@@ -22,11 +22,22 @@ def main():
     def logic():
         """Запускаем логику программы"""
 
-        print('\n'
-              'Получаем данные.')
-        data = get_employers(companies)
-        create_database(database_name, params)  # Создаем БД
-        save_data_to_database(data, database_name, params)
+        per_page = input('Ведите количество вакансий от каждой компании (от 1 до 100):\n'
+                         '>>> ')
+        if per_page.isalpha() or int(per_page) < 1 or int(per_page) > 100:
+            per_page = '10'
+            print('Неверное значение. Установлено значение по-умолчанию: 10.\n'
+                  '\n'
+                  'Получаем данные.')
+            data = get_employers(companies, per_page)  # Проверяем корректность ID
+            create_database(database_name, params)  # Создаем БД
+            save_data_to_database(data, database_name, params)  # Загружаем данные в БД
+        else:
+            print('\n'
+                  'Получаем данные.')
+            data = get_employers(companies, per_page)
+            create_database(database_name, params)  # Создаем БД
+            save_data_to_database(data, database_name, params)
 
     def db_logic():
         """Работаем с БД через класс"""
