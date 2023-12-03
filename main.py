@@ -27,14 +27,12 @@ def main():
         if per_page.isalpha() or int(per_page) < 1 or int(per_page) > 100:
             per_page = '10'
             print('Неверное значение. Установлено значение по-умолчанию: 10.\n'
-                  '\n'
                   'Получаем данные.')
             data = get_employers(companies, per_page)  # Проверяем корректность ID
             create_database(database_name, params)  # Создаем БД
             save_data_to_database(data, database_name, params)  # Загружаем данные в БД
         else:
-            print('\n'
-                  'Получаем данные.')
+            print('Получаем данные...')
             data = get_employers(companies, per_page)
             create_database(database_name, params)  # Создаем БД
             save_data_to_database(data, database_name, params)
@@ -79,7 +77,7 @@ def main():
     num = input('Желаете добавить компанию в имеющийся список?\n'
                 '1. Да\n'
                 '2. Нет\n'
-                '3. Посмотреть список имеющихся ID компаний.\n'
+                '3. Посмотреть список имеющихся ID компаний\n'
                 '4. Выход из программы\n'
                 '>>> ')
     if num == '1':
